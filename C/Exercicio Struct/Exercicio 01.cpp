@@ -24,6 +24,8 @@ em um array de estruturas e depois exiba esses dados na tela.*/
 			scanf(" %d", &stdnt[i].rgstr);
 			printf("Nota aluno %d: ", i + 1);
 			scanf(" %f", &stdnt[i].grd);
+			
+			system("cls");
 		}
 		
 		system("cls");
