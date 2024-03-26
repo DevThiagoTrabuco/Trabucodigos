@@ -11,8 +11,16 @@ em um array de estruturas e depois exiba esses dados na tela.*/
 		float grd;
 	};
 	
+	void exibitData (Student choice){
+		printf("\nNome: %s", choice.name);
+		printf("\nIdade: %d", choice.age);
+		printf("\nMatricula: %d", choice.rgstr);
+		printf("\nNota: %.2f\n\n", choice.grd);
+	}
+	
 	int main(){
 		struct Student stdnt[3];
+		int choice;
 		
 		for(int i = 0;i < 3;i++){
 			fflush(stdin);
@@ -30,11 +38,11 @@ em um array de estruturas e depois exiba esses dados na tela.*/
 		
 		system("cls");
 		
-		for(int i = 0;i < 3;i++){
-			printf("ALUNO %d", i + 1);
-			printf("\nNome: %s", stdnt[i].name);
-			printf("\nIdade: %d", stdnt[i].age);
-			printf("\nMatricula: %d", stdnt[i].rgstr);
-			printf("\nNota: %.2f\n\n", stdnt[i].grd);
-		}
+		printf("Escolha um aluno a ser exibido: ");
+		scanf(" %d", &choice);
+		
+		system("cls");
+		
+		printf("ALUNO %d: ", choice);
+		exibitData(stdnt[choice - 1]);
 	}
