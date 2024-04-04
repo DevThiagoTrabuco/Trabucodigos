@@ -131,7 +131,7 @@ void prdctSearch(){
                 system("pause");
                 system("cls");
             }
-        } else if (option == 2) {
+        	} else if (option == 2) {
             printf("\nDigite o código do produto: ");
             scanf(" %d", &code);
             position = prdctCodeSearch(code);
