@@ -79,8 +79,8 @@ void prdctList(){
 	}
 }
 
-int prdctNameSearch(char name[50]) { //FUNÇÃO QUE BUSCARIA O PRODUTO PELO NOME
-    for(int y = 0; y < i; y++) {   // NÃO TÁ INDO, NÃO SEI PQ
+int prdctNameSearch(char name[50]) {
+    for(int y = 0; y < i; y++) { 
         if(strcmp(product[y].prdctName, name) == 0) {
             return y;
         }
@@ -115,7 +115,7 @@ void prdctSearch(){
 			if (option == 1){
             printf("\nDigite o nome do produto: ");
             scanf(" %s", &name);
-            position = prdctNameSearch(name); //BUSCA PELO NOME
+            position = prdctNameSearch(name);
             if(position != -1) {
                 system("cls");
                 printf("\t###PRODUTO ENCONTRADO###\n\n");
@@ -131,7 +131,7 @@ void prdctSearch(){
                 system("pause");
                 system("cls");
             }
-        } else if (option == 2){
+        } else if (option == 2) {
             printf("\nDigite o código do produto: ");
             scanf(" %d", &code);
             position = prdctCodeSearch(code);
