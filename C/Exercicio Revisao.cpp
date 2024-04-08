@@ -16,7 +16,6 @@ typedef struct{
 STOCK product[PRDCT_NMBR];
 int op, prdctNum, sortNum, i = 0;
 
-
 bool fullList(){
 	if (i == PRDCT_NMBR){
 		return true;
@@ -154,34 +153,34 @@ void prdctSearch(){
 	}					
 }
 
-
-	int main(){
-		setlocale(LC_ALL, "");		
-		while(op != 4){
-			printf("\t###TMT SISTEMAS###\n\n");
-			printf("1 - Cadastrar produto");
-			printf("\n2 - Listar produtos");
-			printf("\n3 - Buscar produtos");
-			printf("\n4 - Sair");
-			printf("\nDigite sua escolha: ");
-			scanf(" %d", &op);
-			fflush(stdin);
-			
-			switch(op){
-				case 1:
-					prdctRegister();
-					break;
-				case 2:
-					prdctList();
-					break;
-				case 3:
-					prdctSearch();
-					break;
-				case 4:
-					abort();
-					break;
-				default:
-					break;
-			}
+int main(){
+	setlocale(LC_ALL, "");		
+	while(op != 4){
+		printf("\t###TMT SISTEMAS###\n\n");
+		printf("1 - Cadastrar produto");
+		printf("\n2 - Listar produtos");
+		printf("\n3 - Buscar produtos");
+		printf("\n4 - Sair");
+		printf("\nDigite sua escolha: ");
+		scanf(" %d", &op);
+		fflush(stdin);
+		
+		switch(op){
+			case 1:
+				prdctRegister();
+				break;
+			case 2:
+				prdctList();
+				break;
+			case 3:
+				prdctSearch();
+				break;
+			case 4:
+				system("cls");
+				abort();
+				break;
+			default:
+				break;
 		}
 	}
+}
