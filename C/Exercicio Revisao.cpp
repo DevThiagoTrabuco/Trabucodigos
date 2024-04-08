@@ -153,6 +153,12 @@ void prdctSearch(){
 	}					
 }
 
+void goodBye(){
+	system("cls");
+	printf("\t###FINALIZANDO SISTEMA###");
+	abort();
+}
+
 int main(){
 	setlocale(LC_ALL, "");		
 	while(op != 4){
@@ -176,8 +182,7 @@ int main(){
 				prdctSearch();
 				break;
 			case 4:
-				system("cls");
-				abort();
+				goodBye();
 				break;
 			default:
 				break;
