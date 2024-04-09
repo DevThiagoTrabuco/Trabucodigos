@@ -16,6 +16,13 @@ typedef struct{
 STOCK product[PRDCT_NMBR];
 int op, prdctNum, sortNum, i = 0;
 
+void createLine(int num, char line){
+	printf("\t");
+	for(int i = 0;i < num;i++){
+		printf("%c", line); 
+	}
+}
+
 bool fullList(){
 	if (i == PRDCT_NMBR){
 		return true;
@@ -60,7 +67,7 @@ void prdctRegister(){
 void prdctList(){
 	if(emptyList()){
 		system("cls");	
-		printf("\t###LISTA DE PRODUTOS VAZIA###\n\n");
+		printf("\n\t###LISTA DE PRODUTOS VAZIA###\n\n");
 		system("pause");
 		system("cls");
 	} else {
@@ -101,7 +108,7 @@ void prdctSearch(){
 	char name[50];
 	if(emptyList()){
 		system("cls");
-		printf("\t###LISTA DE PRODUTOS VAZIA###\n\n");
+		printf("\n\t###LISTA DE PRODUTOS VAZIA###\n\n");
 		system("pause");
 		system("cls");
 	} else {
@@ -162,11 +169,13 @@ void goodBye(){
 int main(){
 	setlocale(LC_ALL, "");		
 	while(op != 4){
-		printf("\t###TMT SISTEMAS###\n\n");
-		printf("1 - Cadastrar produto");
+		createLine(18, '-');
+		printf("\n\t###TMT SISTEMAS###\n");
+		createLine(18, '-');
+		printf("\n1 - Cadastrar produto");
 		printf("\n2 - Listar produtos");
 		printf("\n3 - Buscar produtos");
-		printf("\n4 - Sair");
+		printf("\n4 - Sair\n");
 		printf("\nDigite sua escolha: ");
 		scanf(" %d", &op);
 		fflush(stdin);
