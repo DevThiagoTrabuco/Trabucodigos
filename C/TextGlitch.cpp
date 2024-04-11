@@ -42,7 +42,7 @@ void print_with_glitch(char *text, int glitch_amount, int delay) {
 
 int main() {
 	setlocale(LC_ALL, "");
-    char text[] = "É fogo na bomba, pra fornecer a lombra";
+    char text[] = "E a maconha?";
     print_with_glitch(text, 5, 1000);
     system("cls");
     printf("%s", text);

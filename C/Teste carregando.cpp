@@ -9,7 +9,7 @@
 		
 		for(int i = 0;i < length;i++)
 		{
-			_sleep();
+			_sleep(250);
 			printf("%c", wrd[i]);
 		}
 	}
