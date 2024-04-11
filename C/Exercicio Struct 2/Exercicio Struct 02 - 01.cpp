@@ -35,6 +35,7 @@ int op, i = 0;
 			fflush(stdin);
 			switch(op){
 				case 1:
+					system("cls");
 					printf("Nome: ");
 					gets(users[i].userName);
 					printf("Idade: ");
