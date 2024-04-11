@@ -14,7 +14,7 @@ typedef struct{
 } STOCK;
 
 STOCK product[PRDCT_NMBR];
-int op, prdctNum, sortNum, i = 0;
+int op, sortNum, i = 0;
 
 void createLine(int num, char line){
 	printf("\t");
