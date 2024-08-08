@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Teste {
+    @SuppressWarnings({ "unused", "resource" })
     public static void main(String[] args) {
         int num;
         Integer num2;
@@ -23,5 +24,21 @@ public class Teste {
         int num3 = new Scanner(System.in).nextInt();
         System.out.println("Qual a sua altura?");
         double height = new Scanner(System.in).nextDouble();
+
+        //Declaração de arrays e matrizes
+        int [] age = new int [5];
+        double [] grades = {5.0, 5.5, 6.2};
+
+        char [] word;
+        word = new char [5];
+
+        int [][] matriz = new int[5][4];
+        double [][] matriz2; 
+        matriz2 = new double[5][4];
+
+        calculaNota(1.5, 9.5);
+    }
+    public static double calculaNota(double grade1, double grade2){
+        return (grade1 + grade2)/2;
     }
 }
