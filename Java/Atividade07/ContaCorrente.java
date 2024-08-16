@@ -26,11 +26,7 @@ public class ContaCorrente {
         return balance;
     }
     public double withdraw(double saque){
-        if(balance < saque){
-            System.out.println("Impossível sacar");
-        } else {
-            balance = balance - saque;
-        }
+        balance = balance - saque;
         return balance;
     }
 }
