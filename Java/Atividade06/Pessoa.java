@@ -26,29 +26,25 @@ public class Pessoa {
     }
 
     public void growOld(){
-        if(age < 59){
-            age++;
-        }
+        age++;
     }
     public void gainWeight(double massa){
-        if(weight >= 100.0){
+        if(weight <= 100.0){
             weight = weight + massa;
         } else {
             System.out.println("Não é possível aumentar de peso");
         }
     }
     public void loseWeight(double massa){
-        if (weight <=0.0 && massa > weight){
+        if (weight >= 0.0 && weight > massa){
             weight = weight - massa;
         } else {
             System.out.println("Não é possível diminuir a massa");
         }
     }
     public void grow(){
-        if(age <= 21){
+        if(age <= 21 && height <= 1.80){
             height += 0.05;
-        } else {
-            height += 0.03;
         }
     }
 }
