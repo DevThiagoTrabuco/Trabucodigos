@@ -1,20 +1,19 @@
 package Atividade07;
 
 public class ContaCorrente {
-    private String accOwner;
-    private int account;
+    private String accOwner, account;
     private double balance;
 
-    public ContaCorrente(String nome, int conta){
+    public ContaCorrente(String nome, String accNumber){
         this.accOwner = nome;
-        this.account = conta;
+        this.account = accNumber;
         this.balance = 0.0;
     }
 
     public String getaccOwner(){
         return accOwner;
     }
-    public int getaccount(){
+    public String getaccount(){
         return account;
     }
     public double getbalance(){
