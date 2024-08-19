@@ -8,7 +8,7 @@ public class Principal {
     public static void main(String[] args) {
         System.out.println("Digite o seu nome");
         String nome = new Scanner(System.in).nextLine();
-        int nConta = new Random().nextInt(10000, 1000000);
+        int nConta = new Random().nextInt(100000, 1000000);
         String accNumber = String.valueOf(nConta);
 
         ContaCorrente Conta1 = new ContaCorrente(nome, accNumber);
