@@ -11,27 +11,34 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Principal02 {
+    @SuppressWarnings("resource")
     public static void main(String[] args) {
         ContaCorrente[] conta = new ContaCorrente[3];
         int op = 9, x = 0;
 
         while(op != 0){
             System.out.println("Bem vindo ao BDSM - Banco Dr. São Marinho");
-            System.out.println("O que deseja fazer?\n[1] - Criar conta\n[2] - Entrar numa conta\n[0] - Sair");
+            System.out.println("O que deseja fazer?\n[1] - Criar conta\n[2] - Acessar conta\n[0] - Sair");
             op = new Scanner(System.in).nextInt();
 
             switch (op) {
                 case 1:
-                    System.out.println("Digite o seu nome");
-                    String nome = new Scanner(System.in).nextLine();
-                    int nConta = new Random().nextInt(100000, 1000000);
-                    String accNumber = String.valueOf(nConta);
+                    if (x < 3){
+                        System.out.println("Digite o seu nome");
+                        String nome = new Scanner(System.in).nextLine();
+                        int nConta = new Random().nextInt(100000, 1000000);
+                        String accNumber = String.valueOf(nConta);
 
-                    conta[x] = new ContaCorrente(nome, accNumber);
+                        conta[x] = new ContaCorrente(nome, accNumber);
+                        x++;
+                    } else {
+                        System.out.println("Impossível cadastrar mais contas");
+                    }
                     break;
                 case 2:
                     break;
                 default:
+                    op = 0;
                     break;
             }
         }
