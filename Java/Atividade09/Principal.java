@@ -28,7 +28,7 @@ public class Principal {
                     } else {
                         System.out.println("Qual a distância (em Km) a ser percorrida?");
                         distance = new Scanner(System.in).nextDouble();
-                        if((distance * c1.getfuelUse()) > c1.getfuel()){
+                        if((distance * c1.getfuelUse())/100 > c1.getfuel()){
                             System.out.println("Combustível insuficiente, por favor abasteça.");
                         } else {
                             c1.drive(distance);

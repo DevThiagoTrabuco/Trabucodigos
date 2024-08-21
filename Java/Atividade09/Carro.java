@@ -20,7 +20,7 @@ public class Carro {
         return fuelUse;
     }
     public double drive(double distance){
-        fuel = fuel - (distance * fuelUse);
+        fuel = fuel - (distance * fuelUse)/100;
         return fuel;
     }
     public double refuel(double gas){

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Principal {
     @SuppressWarnings("resource")
     public static void main(String[] args) {
-        System.out.println("Digite o seu nome");
+        System.out.println("Bem vindo ao BDSM - Banco Dr. São Marinho\nDigite o seu nome");
         String nome = new Scanner(System.in).nextLine();
         int nConta = new Random().nextInt(100000, 1000000);
         String accNumber = String.valueOf(nConta);
