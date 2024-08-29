@@ -17,7 +17,7 @@ public class Funcionario {
     }
 
     public double increaseWage(double percentage){
-        wage = wage + (wage*(percentage/100));
+        wage += (wage*(percentage/100));
         return wage;
     }
 }
