@@ -37,21 +37,24 @@ public class Atividade10 {
                     break;
                 case 2:
                     for(int y = 0;y <= employee.length;y++){
-                        System.out.println("[" + (y+1) + "] " + employee[y].getname());
-                        System.out.println("Salário: " + employee[y].getwage());
-                        System.out.println("Escolha um funcionário para ajustar seu salário");
-                        int j = new Scanner(System.in).nextInt();
-                        if(employee[j-1] == null){
-                            System.out.println("Funcionário não cadastrado");
-                        } else {
-                            System.out.println("Digite o percentual de aumento de salário do funcionário " + employee[j-1].getname());
+                        for(int j = 1; j <= employee.length;j++){
+                            System.out.println("["+j+"] " + employee[y].getname());
+                        }
+                        System.out.println("Digite o nome do funcionário para ajustar seu salário");
+                        String n = new Scanner(System.in).nextLine();
+                        if(employee[y].getname().equals(n)){
+                            System.out.println("Digite o percentual de aumento de salário do funcionário " + employee[y].getname());
                             double percentage = new Scanner(System.in).nextDouble();
-                            System.out.println("O novo salário do funcionário é: " + employee[j-1].increaseWage(percentage));
+                            System.out.println("O novo salário do funcionário é: " + employee[y].increaseWage(percentage));
+                        } else {
+                            System.out.println("Funcionário não cadastrado");
                         }
                     }
                     break;
-                default:
+                case 0:
                     quit = true;
+                    break;
+                default:
                     break;
             }
         }
