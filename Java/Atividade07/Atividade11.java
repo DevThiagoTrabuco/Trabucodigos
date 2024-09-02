@@ -80,8 +80,7 @@ public class Atividade11 {
                                             System.out.println("Saldo insuficiente");
                                         } else if(saque <= 0){
                                             System.out.println("Impossível realizar saque");
-                                        }
-                                        else {
+                                        } else {
                                             conta[i].withdraw(saque);
                                         }
                                     } else {

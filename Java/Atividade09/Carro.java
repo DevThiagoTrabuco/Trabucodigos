@@ -1,5 +1,3 @@
-package Atividade09;
-
 public class Carro {
     private String model;
     private double fuel, fuelUse;

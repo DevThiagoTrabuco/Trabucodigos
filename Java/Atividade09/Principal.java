@@ -1,5 +1,3 @@
-package Atividade09;
-
 import java.util.Scanner;
 
 public class Principal {
