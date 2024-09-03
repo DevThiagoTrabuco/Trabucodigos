@@ -16,6 +16,7 @@ public class Principal {
             + "\nEscolha uma opção:"
             + "\n[1] - Cadastrar nova Bomba de Combustível"
             + "\n[2] - Editar Bomba de Combustível"
+            + "\n[3] - Remover Bomba de Combustível"
             + "\n[Outro número] - Sair");
             int op = new Scanner(System.in).nextInt();
 
@@ -32,7 +33,8 @@ public class Principal {
 
                     BombaCombustivel bomba = new BombaCombustivel(id, fuelType, priceByLiter, fuelQtt);
                     Bomba.add(bomba);
-                    System.out.println("Bomba cadastrada");
+                    System.out.println("Bomba cadastrada."
+                    + "\nNº de identificação: " + id);
                     break;
                 case 2:
                     if(Bomba.isEmpty()){
@@ -54,7 +56,7 @@ public class Principal {
                                 while(!quit2){
                                     System.out.println("Bomba: " + Bomba.get(index).getid()
                                     + "\nTipo de combustível: " + Bomba.get(index).gettype()
-                                    + "\nValor por litro: R$" + Bomba.get(index).getprice()
+                                    + "\nValor por litro: R$ " + Bomba.get(index).getprice()
                                     + "\nVolume atual(L): " + Bomba.get(index).getqtt()
                                     + "\nEscolha uma opção:"
                                     + "\n[1] - Editar tipo de combustível"
@@ -100,6 +102,27 @@ public class Principal {
                         }
                         if(!found){
                             System.out.println("Bomba não cadastrada.");
+                        }
+                    }
+                    break;
+                case 3:
+                    if(Bomba.isEmpty()){
+                        System.out.println("Não há bombas cadastradas.");
+                    } else {
+                        System.out.println("Digite o nº de identificação da Bomba.");
+                        id = new Scanner(System.in).nextLine();
+                        boolean found = false;
+
+                        for(BombaCombustivel pump : Bomba){
+                            if(pump.getid().equals(id)){
+                                found = true;
+                                Bomba.remove(pump);
+                                System.out.println("Bomba " + pump.getid() + " removida com sucesso.");
+                                break;
+                            }
+                        }
+                        if(!found){
+                            System.out.println("Bomba não encontrada.");
                         }
                     }
                     break;

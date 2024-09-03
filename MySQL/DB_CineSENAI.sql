@@ -93,7 +93,7 @@ CREATE TABLE item_venda(
 );
 CREATE TABLE vendas(
 	id_venda INT PRIMARY KEY AUTO_INCREMENT,
-    data_venda DATE NOT NULL,
+    data_venda DATETIME NOT NULL,
     id_empregados INT,
     id_tipo_pagamento INT,
     id_item INT,
