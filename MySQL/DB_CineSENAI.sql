@@ -1,13 +1,15 @@
 DROP DATABASE CineSENAI;
+-- DROP TABLE;
+SET SQL_SAFE_UPDATES = 1;
 
 CREATE DATABASE CineSENAI;
 USE CineSENAI;
 
-CREATE TABLE genero(
+CREATE TABLE genero( -- OK
 	id_genero INT PRIMARY KEY AUTO_INCREMENT,
     nome_genero VARCHAR(50) NOT NULL
 );
-CREATE TABLE diretor(
+CREATE TABLE diretor( -- OK
 	id_diretor INT PRIMARY KEY AUTO_INCREMENT,
     nome_diretor VARCHAR(50) NOT NULL
 );
@@ -29,7 +31,7 @@ CREATE TABLE filmes(
     CONSTRAINT fk_filmes_genero FOREIGN KEY (id_genero) REFERENCES genero(id_genero),
 	CONSTRAINT fk_filmes_diretores_filme FOREIGN KEY (id_diretores_filme) REFERENCES diretores_filme(id_diretores_filme)
 );
-CREATE TABLE tipo_ingresso(
+CREATE TABLE tipo_ingresso( -- OK
 	id_tipo INT PRIMARY KEY AUTO_INCREMENT,
     nome_tipo VARCHAR(50) NOT NULL,
     sts_tipo VARCHAR(50) NOT NULL,
@@ -40,7 +42,7 @@ CREATE TABLE sessoes(
     data_sessao DATETIME NOT NULL,
     idioma_sessao ENUM('LEG', 'DUB') NOT NULL DEFAULT 'DUB'
 );
-CREATE TABLE salas(
+CREATE TABLE salas( -- OK
 	id_sala INT PRIMARY KEY AUTO_INCREMENT,
 	nome_sala VARCHAR(50) NOT NULL,
     capacidade_sala INT NOT NULL,
@@ -54,7 +56,7 @@ CREATE TABLE assentos(
     id_sala INT,
     CONSTRAINT fk_assentos_salas FOREIGN KEY (id_sala) REFERENCES salas(id_sala)
 );
-CREATE TABLE cargos(
+CREATE TABLE cargos( -- OK
 	id_cargos INT PRIMARY KEY AUTO_INCREMENT,
     cargo VARCHAR(50) NOT NULL,
     sts ENUM('A', 'I') DEFAULT 'A'
@@ -75,7 +77,7 @@ CREATE TABLE ingressos(
 	CONSTRAINT fk_ingressos_tipo FOREIGN KEY (id_tipo) REFERENCES tipo_ingresso(id_tipo),
 	CONSTRAINT fk_ingressos_assentos FOREIGN KEY (id_assentos) REFERENCES assentos(id_assentos)
 );
-CREATE TABLE tipo_pagamento(
+CREATE TABLE tipo_pagamento( -- OK
 	id_tipo_pagamento INT PRIMARY KEY AUTO_INCREMENT,
     nome_tipo VARCHAR(25) NOT NULL,
     sts_tipo VARCHAR(25) NOT NULL
@@ -135,5 +137,33 @@ INSERT INTO diretor (nome_diretor)
 INSERT INTO salas (nome_sala, capacidade_sala)
 	VALUES ('ALPHA', 100), ('BETA', 50),
     ('GAMMA', 50), ('DELTA', 50), ('SIGMA', 50);
+    
+ALTER TABLE tipo_ingresso
+	MODIFY COLUMN sts_tipo ENUM('A', 'I') DEFAULT 'A';
+    
+ALTER TABLE tipo_ingresso
+	ADD CONSTRAINT tipo_unico UNIQUE (nome_tipo);
+    
+ALTER TABLE tipo_pagamento
+	MODIFY COLUMN sts_tipo ENUM ('A', 'I') DEFAULT 'A',
+    ADD CONSTRAINT tipo_pagamento_unico UNIQUE (nome_tipo);
 
-SELECT * FROM salas;
+INSERT INTO tipo_ingresso(nome_tipo, preco_ingresso)
+	VALUES ('Inteira',24.50),
+    ('Meia', 12.25),
+    ('Estudante', 15.00),
+    ('Combo Casal', 40.00);
+    
+INSERT INTO tipo_pagamento (nome_tipo)
+	VALUES ('Crédito'), ('Débito'),
+    ('PIX'), ('Á vista');
+
+INSERT INTO cargos (cargo)
+	VALUES ('Gerente'), ('Supervisor de sala'),
+    ('Operador de projetor'), ('Operador da lanchonete'), ('Bilheteiro'), ('Caixa'),
+    ('Zelador'), ('Segurança');
+    
+ALTER TABLE filmes
+	MODIFY COLUMN classificacao_filme ENUM('L', '10', '12', '14', '16', '18') DEFAULT 'L';
+
+SELECT * FROM cargos;
