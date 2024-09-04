@@ -110,7 +110,7 @@ ALTER TABLE empregados
     ADD CONSTRAINT fk_empregados_cargos FOREIGN KEY (id_cargos) REFERENCES cargos(id_cargos);
 
 ALTER TABLE cargos
-	CHANGE sts sts_cargos ENUM('A', 'I') DEFAULT 'A';
+	CHANGE sts sts_cargos ENUM('A', 'I') DEFAULT 'I';
     
 ALTER TABLE diretores_filme
 	ADD CONSTRAINT fk_diretores_filme_filmes FOREIGN KEY (id_filme) REFERENCES filmes(id_filme);
