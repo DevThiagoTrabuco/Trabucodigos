@@ -109,3 +109,31 @@ ALTER TABLE empregados
 
 ALTER TABLE cargos
 	CHANGE sts sts_cargos ENUM('A', 'I') DEFAULT 'A';
+    
+ALTER TABLE diretores_filme
+	ADD CONSTRAINT fk_diretores_filme_filmes FOREIGN KEY (id_filme) REFERENCES filmes(id_filme);
+
+ALTER TABLE filmes
+	DROP COLUMN id_diretores_filme,
+    DROP CONSTRAINT fk_filmes_diretores_filme;
+ALTER TABLE diretores_filme
+	DROP COLUMN id_diretores_filme;
+
+INSERT INTO genero (nome_genero)
+	VALUES ('Ação'), ('Drama'), ('Romance'),
+    ('Aventura'), ('Suspense'), ('Terror'),
+    ('Comédia'), ('Ficção_Científica'), ('Fantasia'),
+    ('Animação');
+    
+INSERT INTO diretor (nome_diretor)
+	VALUES ('Alfred Hitchcock'), ('Stanley Kubrick'), ('Martin Scorcese'),
+    ('Steven Spielberg'), ('Quentin Tarantino'), ('Francis Ford Coppola'),
+    ('Ridley Scott'), ('Christopher Nolan'), ('James Cameron'),
+    ('Wes Anderson'), ('Pedro Almodóvar'), ('Hayao Miyazaki'),
+    ('David Fincher'), ('Coen Brothers'), ('Jean-Luc Godard');
+    
+INSERT INTO salas (nome_sala, capacidade_sala)
+	VALUES ('ALPHA', 100), ('BETA', 50),
+    ('GAMMA', 50), ('DELTA', 50), ('SIGMA', 50);
+
+SELECT * FROM salas;
