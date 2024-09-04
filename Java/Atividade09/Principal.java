@@ -9,15 +9,15 @@ public class Principal {
         double consumo = new Scanner(System.in).nextDouble();
 
         Carro c1 = new Carro(modelo, consumo);
-        int op = 9;
+        boolean quit = false;
         double distance = 0;
         
-        while(op != 0){
+        while(!quit){
             System.out.println("Modelo: " + c1.getmodel());
             System.out.println("Consumo: " + c1.getfuelUse());
             System.out.println("Combustível: " + c1.getfuel());
             System.out.println("O que deseja fazer?\n[1] - Dirigir\n[2] - Abastecer\n[0] - Sair do carro");
-            op = new Scanner(System.in).nextInt();
+            int op = new Scanner(System.in).nextInt();
 
             switch (op) {
                 case 1:
@@ -39,7 +39,7 @@ public class Principal {
                     c1.refuel(gas);
                 break;
                 default:
-                    op = 0;
+                    quit = true;
                 break;
             }
         }
