@@ -166,4 +166,18 @@ INSERT INTO cargos (cargo)
 ALTER TABLE filmes
 	MODIFY COLUMN classificacao_filme ENUM('L', '10', '12', '14', '16', '18') DEFAULT 'L';
 
-SELECT * FROM cargos;
+SELECT * FROM horario;
+
+CREATE TABLE horario( -- OK
+	id_horario INT PRIMARY KEY AUTO_INCREMENT,
+    hora_sessao TIME
+);
+
+INSERT INTO horario (hora_sessao)
+	VALUES ('09:00'), ('10:30'), ('12:00'),
+    ('13:30'), ('15:00'), ('16:30'),
+    ('18:00'), ('19:30'), ('21:00'), ('22:30'); 
+    
+ALTER TABLE sessoes
+	ADD id_horario INT AFTER data_sessao,
+    ADD CONSTRAINT fk_sessoes_horario FOREIGN KEY (id_horario) REFERENCES horario(id_horario);
