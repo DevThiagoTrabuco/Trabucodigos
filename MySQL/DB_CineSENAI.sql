@@ -13,19 +13,19 @@ CREATE TABLE diretor( -- OK
 	id_diretor INT PRIMARY KEY AUTO_INCREMENT,
     nome_diretor VARCHAR(50) NOT NULL
 );
-CREATE TABLE diretores_filme(
+CREATE TABLE diretores_filme( -- OK
 	id_diretores_filme INT PRIMARY KEY AUTO_INCREMENT,
     id_filme INT,
     id_diretor INT,
 	CONSTRAINT fk_diretores_filme_diretor FOREIGN KEY (id_diretor) REFERENCES diretor(id_diretor)
 );
-CREATE TABLE filmes(
+CREATE TABLE filmes( -- OK
 	id_filme INT PRIMARY KEY AUTO_INCREMENT,
     nome_ptbr VARCHAR(50) NOT NULL,
     nome_eng VARCHAR(50),
-    sinopse_filme VARCHAR(300) UNIQUE KEY,
-    ano_lancamento DATE NOT NULL,
-    classificacao_filme VARCHAR(3) DEFAULT 'L',
+    sinopse_filme VARCHAR(100) DEFAULT 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+    ano_lancamento YEAR NOT NULL,
+    classificacao_filme VARCHAR(3),
     id_genero INT,
     id_diretores_filme INT,
     CONSTRAINT fk_filmes_genero FOREIGN KEY (id_genero) REFERENCES genero(id_genero),
@@ -149,7 +149,7 @@ INSERT INTO diretor (nome_diretor)
 	VALUES ('Alfred Hitchcock'), ('Stanley Kubrick'), ('Martin Scorcese'),
     ('Steven Spielberg'), ('Quentin Tarantino'), ('Francis Ford Coppola'),
     ('Ridley Scott'), ('Christopher Nolan'), ('James Cameron'),
-    ('Wes Anderson'), ('Pedro Almodóvar'), ('Hayao Miyazaki'),
+    ('Wes Anderson'), ('José Padilha'), ('Hayao Miyazaki'),
     ('David Fincher'), ('Coen Brothers'), ('Jean-Luc Godard');
     
 INSERT INTO salas (nome_sala, capacidade_sala)
@@ -202,3 +202,44 @@ INSERT INTO assentos (num_assentos, id_sala)
 (21, 5), (22, 5), (23, 5), (24, 5), (25, 5), (26, 5), (27, 5), (28, 5), (29, 5), (30, 5),
 (31, 5), (32, 5), (33, 5), (34, 5), (35, 5), (36, 5), (37, 5), (38, 5), (39, 5), (40, 5),
 (41, 5), (42, 5), (43, 5), (44, 5), (45, 5), (46, 5), (47, 5), (48, 5), (49, 5), (50, 5);
+
+INSERT INTO filmes (nome_ptbr, nome_eng, ano_lancamento, id_genero, classificacao_filme)
+	VALUES ('Psicose', 'Psycho', '1960', 5, '+14'), 
+		('Janela Indiscreta', 'Rear Window', '1954', 5, '+12'), 
+		('2001: Uma Odisseia no Espaço', '2001: A Space Odyssey', '1968', 8, 'L'), 
+		('O Iluminado', 'The Shining', '1980', 6, '+16'), 
+		('Os Bons Companheiros', 'Goodfellas', '1990', 5, '+16'), 
+		('O Lobo de Wall Street', 'The Wolf of Wall Street', '2013', 5, '+16'), 
+		('Jurassic Park', 'Jurassic Park', '1993', 4, '+12'), 
+		('E.T. – O Extraterrestre', 'E.T. the Extra-Terrestrial', '1982', 8, 'L'), 
+		('Pulp Fiction', 'Pulp Fiction', '1994', 5, '+18'), 
+		('Kill Bill: Volume 1', 'Kill Bill: Volume 1', '2003', 1, '+18'), 
+		('Apocalypse Now', 'Apocalypse Now', '1979', 1, '+18'), 
+		('O Poderoso Chefão', 'The Godfather', '1972', 2, '+14'), 
+		('Blade Runner', 'Blade Runner', '1982', 8, '+14'), 
+		('Gladiador', 'Gladiator', '2000', 1, '+16'), 
+		('Inception', 'Inception', '2010', 8, '+12'), 
+		('The Dark Knight', 'The Dark Knight', '2008', 5, '+12'), 
+		('Terminator 2: Judgment Day', 'Terminator 2: Judgment Day', '1991', 8, '+14'), 
+		('Avatar', 'Avatar', '2009', 4, '+12'), 
+		('O Grande Hotel Budapeste', 'The Grand Budapest Hotel', '2014', 7, '+12'), 
+		('A Vida Aquática com Steve Zissou', 'The Life Aquatic with Steve Zissou', '2004', 4, '+12'), 
+		('Tropa de Elite', 'Tropa de Elite', '2007', 1, '+18'), 
+		('RoboCop (2014)', 'RoboCop', '2014', 1, '+14'), 
+		('Meu Amigo Totoro', 'My Neighbor Totoro', '1988', 10, 'L'), 
+		('A Viagem de Chihiro', 'Spirited Away', '2001', 10, 'L'), 
+		('Seven – Os Sete Crimes Capitais', 'Seven', '1995', 5, '+18'), 
+		('Clube da Luta', 'Fight Club', '1999', 9, '+18'), 
+		('O Grande Lebowski', 'The Big Lebowski', '1998', 7, '+16'), 
+		('Onde os Fracos Não Têm Vez', 'No Country for Old Men', '2007', 1, '+16'), 
+		('O Desprezo', 'Le Mépris', '1963', 3, '+16'), 
+		('Acossado', 'À bout de souffle', '1960', 2, '+16'); 
+
+INSERT INTO diretores_filme (id_filme, id_diretor)
+	VALUES(1, 1), (2, 1), (3, 2), (4, 2), (5, 3),
+    (6, 3), (7, 4), (8, 4), (9, 5), (10, 5),
+    (11, 6), (12, 6), (13, 7), (14, 7), (15, 8),
+    (16, 8), (17, 9), (18, 9), (19, 10), (20, 10),
+    (21, 11), (22, 11), (23, 12), (24, 12), (25, 13),
+    (26, 13),  (27, 14), (28, 14), (29, 15), (30, 15);
+
