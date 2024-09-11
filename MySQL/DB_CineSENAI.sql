@@ -68,7 +68,7 @@ CREATE TABLE empregados( -- OK
     telefone_empregados VARCHAR(11) NOT NULL,
     sts_empregados ENUM('A', 'I') DEFAULT 'A'
 );
-CREATE TABLE ingressos( -- OK
+CREATE TABLE ingressos(
 	id_ingresso INT PRIMARY KEY AUTO_INCREMENT,
     id_sessao INT,
     id_tipo INT,
@@ -84,21 +84,17 @@ CREATE TABLE tipo_pagamento( -- OK
 );
 CREATE TABLE item_venda(
 	id_item INT PRIMARY KEY AUTO_INCREMENT,
-    nome_item VARCHAR(50) NOT NULL DEFAULT 'Ingresso',
-    data_venda DATETIME DEFAULT NOW(),
-    id_ingresso INT,
-    id_assentos INT,
     id_tipo INT,
+    id_ingresso INT,
 	CONSTRAINT fk_item_venda_ingressos FOREIGN KEY (id_ingresso) REFERENCES ingressos(id_ingresso),
-	CONSTRAINT fk_item_venda_assentos FOREIGN KEY (id_assentos) REFERENCES assentos(id_assentos),
-	CONSTRAINT fk_item_venda_tipo_ingresso FOREIGN KEY (id_tipo) REFERENCES tipo_ingresso(id_tipo)
+    CONSTRAINT fk_item_venda_tipo_ingresso FOREIGN KEY (id_tipo) REFERENCES tipo_ingresso(id_tipo)
 );
 CREATE TABLE vendas(
 	id_venda INT PRIMARY KEY AUTO_INCREMENT,
     data_venda DATETIME NOT NULL,
+    id_item INT,
     id_empregados INT,
     id_tipo_pagamento INT,
-    id_item INT,
 	CONSTRAINT fk_vendas_empregados FOREIGN KEY (id_empregados) REFERENCES empregados(id_empregados),
 	CONSTRAINT fk_vendas_tipo_pagamento FOREIGN KEY (id_tipo_pagamento) REFERENCES tipo_pagamento(id_tipo_pagamento),
 	CONSTRAINT fk_vendas_item_venda FOREIGN KEY (id_item) REFERENCES item_venda(id_item)
