@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Teste JavaScript</title>
+        <script>
+            var broken = false;
+            function lampChange(type){
+                if(!broken){
+                    document.getElementById("lamp").src = "Curso_HTML/projeto-glass-html5/_imagens/" + type + ".jpg";
+                    if(type == 'lampada-quebrada'){
+                        broken = true;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Acenda a lâmpada</h1>
+        <img src="Curso_HTML/projeto-glass-html5/_imagens/lampada-apagada.jpg" id="lamp" onmousemove="lampChange('lampada-acesa')" onmouseout="lampChange('lampada-apagada')" onclick="lampChange('lampada-quebrada')"/>
+    </body>
+</html>
