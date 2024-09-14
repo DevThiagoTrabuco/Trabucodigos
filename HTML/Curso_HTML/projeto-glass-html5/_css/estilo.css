@@ -10,7 +10,7 @@ body{
     color: black;
 }
 div#interface{
-    width: 1300px;
+    width: 800px;
     background-color: #ffffff;
     margin: -20px auto 10px auto;
     box-shadow: 0px 0px 10px gray;
@@ -38,7 +38,7 @@ nav#menu ul{
     text-transform: uppercase;
     position: absolute;
     top: -20px;
-    left: 650px;
+    left: 450px;
 }
 nav#menu li{
     display: inline-block;
@@ -86,12 +86,12 @@ header#cabecalho h2{
 }
 header#cabecalho img#icone{
     position: absolute;
-    left: 1100px;
+    left: 770px;
     top: 70px;
 }
 section#corpo{
     display: block;
-    width: 800px;
+    width: 450px;
     float: left;
     border-right: #000000 solid 1px;
     padding-right: 15px;
@@ -125,7 +125,7 @@ header#cabecalhoArtigo h3{
 }
 aside#lateral{
     display: block;
-    width: 450px;
+    width: 300px;
     float: right;
     background-color: #888888;
     padding: 10px;
@@ -153,6 +153,7 @@ footer#rodape{
 }
 footer#rodape p{
     text-align: center;
+    margin: 2px;
 }
 
 /*Formatação de imagens com legendas*/
