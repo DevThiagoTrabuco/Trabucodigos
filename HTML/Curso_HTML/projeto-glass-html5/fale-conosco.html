@@ -3,10 +3,17 @@
     <head>
         <meta charset="UTF-8"/>
         <title>Google Glass</title>
-        <link rel="stylesheet" href="_css/estilo.css"/>
-        <link rel="stylesheet" href="_css/form.css">
+        <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/form.css"/>
+        <script src="_javascript/funcoes.js"></script>
+        <script>
+            function calc_total(){
+                var qtd = parseInt(document.getElementById('qtt').value);
+                tot = qtd * 1500;
+                document.getElementById('total').value = tot;
+            }
+        </script>
     </head>
-    <script src="_javascrit/funcoes.js"></script>
     <body>
         <div id="interface">
             <header id="cabecalho">
@@ -20,11 +27,11 @@
                 <nav id="menu">
                     <h1>Menu Principal</h1>
                     <ul>
-                        <li onmouseover="changePic('_imagens/home.png')" onmouseout="changePic('_imagens/glass-oculos-preto-peq.png')"><a href="index.html">Home</a></li>
-                        <li onmouseover="changePic('_imagens/especificacoes.png')" onmouseout="changePic('_imagens/glass-oculos-preto-peq.png')"><a href="specs.html">Especificações</a></li>
-                        <li onmouseover="changePic('_imagens/fotos.png')" onmouseout="changePic('_imagens/glass-oculos-preto-peq.png')"><a href="fotos.html">Fotos</a></li>
-                        <li onmouseover="changePic('_imagens/multimidia.png')" onmouseout="changePic('_imagens/glass-oculos-preto-peq.png')"><a href="multimidia.html">Multimídia</a></li>
-                        <li onmouseover="changePic('_imagens/contato.png')" onmouseout="changePic('_imagens/glass-oculos-preto-peq.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+                        <li onmouseover="changePic('_imagens/home.png')" onmouseout="changePic('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                        <li onmouseover="changePic('_imagens/especificacoes.png')" onmouseout="changePic('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                        <li onmouseover="changePic('_imagens/fotos.png')" onmouseout="changePic('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                        <li onmouseover="changePic('_imagens/multimidia.png')" onmouseout="changePic('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                        <li onmouseover="changePic('_imagens/contato.png')" onmouseout="changePic('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
                     </ul>
                 </nav>
             </header>
@@ -40,7 +47,7 @@
                         </hgroup>
                     </header>
 
-                        <form method="post" id="contato" action="mailto:yafita1315@asaud.com">
+                        <form method="post" id="contato" action="mailto:yafita1315@asaud.com" oninput="calc_total();">
                             <fieldset id="user">
                                 <legend>Identificação do Usuário</legend>
                                     <p><label for="cName">Nome</label>: <input type="text" name="tName" id="cName" size="20" maxlength="40" placeholder="Nome Completo"/></p>
@@ -137,19 +144,19 @@
                             <fieldset id="msg">
                                 <legend>Mensagem do Usuário</legend>
                                     <p><label for="urg">Grau de Urgência</label>: Min<input type="range" name="urgencia" id="urg" min="0" max="10"></input>Máx</p>
-                                    <p><label for="msgem">Mensagem</label>:<textarea name="mensagem" id="msgem" cols="45" rows="5" placeholder="Digite sua mensagem"></textarea></p>
+                                    <p><label for="msgem">Mensagem</label>:<textarea name="mensagem" id="msgem" cols="35" rows="5" placeholder="Digite sua mensagem"></textarea></p>
                             </fieldset>
                             
                             <fieldset id="order">
                                 <legend>Quero um Google Glass</legend>
+                                    <input type="checkbox" name="pedido" id="order_item"/>
                                     <label for="order_item">Gostaria de adquirir um Google Glass quando disponível</label>
-                                    <p><label for="color">Cor</label>:</p>
-                                    <p><label for="qtt">Quantidade</label>:</p>
-                                    <p><label for="total">Preço Total</label>: R$</p>
+                                    <p><label for="color">Cor</label>:<input type="color" name="cor" id="color"/></p>
+                                    <p><label for="qtt">Quantidade</label>:<input type="number" name="numero" id="qtt" min="0" max="5"/></p>
+                                    <p><label for="total">Preço Total: R$</label><input type="text" name="preco" id="total" placeholder="Total a ser pago" size="10"/></p>
                             </fieldset>
                             
-                            
-                            [BOTÃO ENVIAR]
+                            <input type="image" src="_imagens/botao-enviar.png"/>
                         </form>
 
                 </article>
