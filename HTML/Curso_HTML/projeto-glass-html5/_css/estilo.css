@@ -10,7 +10,7 @@ body{
     color: black;
 }
 div#interface{
-    width: 800px;
+    width: 900px;
     background-color: #ffffff;
     margin: -20px auto 10px auto;
     box-shadow: 0px 0px 10px gray;
@@ -37,8 +37,8 @@ nav#menu ul{
     list-style: none;
     text-transform: uppercase;
     position: absolute;
-    top: -20px;
-    left: 450px;
+    top: -12px;
+    left: 750px;
 }
 nav#menu li{
     display: inline-block;
@@ -86,7 +86,7 @@ header#cabecalho h2{
 }
 header#cabecalho img#icone{
     position: absolute;
-    left: 770px;
+    left: 1150px;
     top: 70px;
 }
 section#corpo{
@@ -125,7 +125,7 @@ header#cabecalhoArtigo h3{
 }
 aside#lateral{
     display: block;
-    width: 300px;
+    width: 400px;
     float: right;
     background-color: #888888;
     padding: 10px;
