@@ -143,3 +143,15 @@ FROM pedidos
 JOIN funcionarios
 ON funcionarios.id_funcionario = pedidos.id_funcionario
 GROUP BY pedidos.id_pedido;
+
+CREATE VIEW V_func_X_pedidos
+AS SELECT funcionarios.id_funcionario AS 'Id_func',
+		funcionarios.nome AS 'Nome_func'
+FROM pedidos p,
+funcionarios f
+WHERE funcionarios.id_funcionario = pedidos.id_funcionario
+GROUP BY pedidos.id_pedido;
+
+SELECT * 
+FROM V_func_X_pedidos
+WHERE Id_func < 5
