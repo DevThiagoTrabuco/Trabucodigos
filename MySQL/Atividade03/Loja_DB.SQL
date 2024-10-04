@@ -119,3 +119,14 @@ CREATE OR REPLACE VIEW PRODUTO_FAVORITO_VIEW
     GROUP BY i.codproduto;
 
 -- Questão 6
+CREATE OR REPLACE VIEW PRODUTOS_DEFASADOS_VIEW
+	 AS SELECT p.codproduto Codigo, 
+		p.descricao Nome_Produto
+     FROM ex_produto p
+     WHERE p.codproduto NOT IN(
+		SELECT i.codproduto
+        FROM ex_itempedido i
+        JOIN ex_pedido pd 
+        ON i.codpedido = pd.codpedido
+        WHERE pd.datapedido >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+     );
