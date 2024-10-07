@@ -79,7 +79,7 @@ CREATE OR REPLACE VIEW CLIENTES_MAIORES_VIEW
 	AS SELECT c.nome Nome,
 		c.datanascimento Data_Nascimento
 	FROM ex_cliente c
-    WHERE datanascimento > 2006/01/01
+    WHERE YEAR(CURDATE()) - YEAR(c.datanascimento) > 18
     ORDER BY c.nome;
 
 -- Questão 2
