@@ -82,6 +82,12 @@ CREATE OR REPLACE VIEW CLIENTES_MAIORES_VIEW
     WHERE YEAR(CURDATE()) - YEAR(c.datanascimento) > 18
     ORDER BY c.nome;
 
+CREATE OR REPLACE VIEW CLIENTES_MAIORES_VIEW_2
+	AS SELECT *
+	FROM ex_cliente c
+    WHERE FLOOR(DATEDIFF(NOW(), datanascimento)/365.25) > 18
+    ORDER BY YEAR(c.datanascimento);
+
 -- Questão 2
 CREATE OR REPLACE VIEW ULTIMO_PEDIDO_VIEW
 	AS SELECT c.nome Nome,
@@ -91,6 +97,11 @@ CREATE OR REPLACE VIEW ULTIMO_PEDIDO_VIEW
     ON p.codcliente = c.codcliente
     GROUP BY c.codcliente;
     
+CREATE OR REPLACE VIEW ULTIMO_PEDIDO_VIEW_2
+	AS SELECT *
+    FROM ex_pedido
+    WHERE nf IN (SELECT MAX(nf) FROM ex_pedido GROUP BY codcliente);
+    
 -- Questão 3
 CREATE OR REPLACE VIEW TABELA_PRODUTO_VIEW
 	AS SELECT p.descricao Produto,
@@ -99,6 +110,14 @@ CREATE OR REPLACE VIEW TABELA_PRODUTO_VIEW
     JOIN ex_produto p
     ON i.codproduto = p.codproduto
     GROUP BY p.codproduto;
+    
+CREATE OR REPLACE VIEW TABELA_PRODUTO_VIEW_2
+	AS SELECT p.*, it.valorunitario
+    FROM ex_itempedido it
+    JOIN (SELECT MAX(codpedido) codpedido, codproduto FROM ex_itempedido GROUP BY codproduto) up
+		ON it.codpedido = up.codpedido AND it.codproduto = up.codproduto
+	JOIN ex_produto p
+		ON p.codproduto = it.codproduto;
     
 -- Questão 4
 CREATE OR REPLACE VIEW LISTA_NOTA_VIEW
@@ -117,6 +136,28 @@ CREATE OR REPLACE VIEW PRODUTO_FAVORITO_VIEW
     JOIN ex_itempedido i
     ON i.codproduto = p.codproduto
     GROUP BY i.codproduto;
+    
+CREATE OR REPLACE VIEW PRODUTO_FAVORITO_VIEW_2
+	AS SELECT DISTINCT
+		c.nome as Cliente,
+		prod.descricao Produto,
+		it.quantidade
+	FROM ex_itempedido it
+	JOIN ex_pedido ped
+		ON ped.codpedido = it.codpedido
+	JOIN ex_cliente c
+		ON c.codcliente = ped.codcliente
+	JOIN ex_produto prod
+		ON prod.codproduto = it.codproduto
+	WHERE quantidade in (
+	SELECT 
+		MAX(quantidade) 
+	FROM ex_pedido p 
+	JOIN ex_itempedido itt 
+	ON p.codpedido = itt.codpedido 
+	WHERE it.codpedido = itt.codpedido 
+	GROUP BY codcliente);
+
 
 -- Questão 6
 CREATE OR REPLACE VIEW PRODUTOS_DEFASADOS_VIEW
@@ -130,3 +171,5 @@ CREATE OR REPLACE VIEW PRODUTOS_DEFASADOS_VIEW
         ON i.codpedido = pd.codpedido
         WHERE pd.datapedido >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
      );
+     
+SELECT * FROM PRODUTO_FAVORITO_VIEW_2
