@@ -1,0 +1,4 @@
+Questão 01
+
+Linha 4 e 9 - Necessário o @override para implementar a função da interface
+É necessário implementar todas as funções da interface. Classe não implementou função reseta(int origem).

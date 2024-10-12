@@ -1,0 +1,13 @@
+Questão 1
+linha 1 - uma subclasse só pode herdar métodos e atributos de apenas uma superclasse
+linha 5 e 6 - apenas um super pro construtor
+linha 8 - faltou override
+
+Questão 2
+linha 3 - atributos deviam ser protected
+Classe Ponto3D_V2 : linha 7 e 8 - atributos 'x' e 'y' pertencem a superclasse Ponto2D_V2 portando deviam estar em super(_x, _y)
+
+Questão 4
+linha 1 - classe deveria ser abstrata
+linha 6 - faltou modificador de acesso
+linha 12 e 13 - modificador de acesso deve vir antes
