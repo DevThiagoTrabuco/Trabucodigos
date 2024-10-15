@@ -1,6 +1,10 @@
 public class Carro {
+    @SuppressWarnings("FieldMayBeFinal")
     private String model;
-    private double fuel, fuelUse;
+    @SuppressWarnings("FieldMayBeFinal")
+    private double fuel;
+    @SuppressWarnings("FieldMayBeFinal")
+    private double fuelUse;
 
     public Carro(String modelo, double consumo){
         this.fuel = 0.0;

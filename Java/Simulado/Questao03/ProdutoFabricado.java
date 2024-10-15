@@ -1,12 +1,18 @@
-package Simulado.Questao_03;
+package Simulado.Questao03;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ProdutoFabricado implements IfProdutoFabricado{
-    protected String nome;
-    protected float custo;
-    List<Produto> ingredientes = new ArrayList<>();
+    @SuppressWarnings("FieldMayBeFinal")
+    private String nome;
+    @SuppressWarnings("FieldMayBeFinal")
+    private List<Produto> ingredientes = new ArrayList<>();
+
+    public ProdutoFabricado(String nome, List<Produto> ingredientes) {
+        this.nome = nome;
+        this.ingredientes = ingredientes;
+    }
 
     @Override
     public String getNome(){
@@ -14,22 +20,19 @@ public abstract class ProdutoFabricado implements IfProdutoFabricado{
     }
     @Override
     public float getCusto(){
+        float custo = 0;
+
+        for(Produto ingrediente : ingredientes){
+            if(!ingrediente.getNome().isEmpty()){
+                custo+=ingrediente.getCusto();
+            }
+        }
         return custo;
     }
     @Override
     public int getIngredientes(){
-        int numIngrediente = 0;
-
-        for(Produto ingrediente : ingredientes){
-            if(!ingrediente.getNome().isEmpty()){
-                numIngrediente++;
-                custo+=ingrediente.getCusto();
-            }
-        }
-
-        return numIngrediente;
+        return ingredientes.size();
     }
-
     @Override
     public IfProduto getIngrediente(int num){
         return ingredientes.get(num);

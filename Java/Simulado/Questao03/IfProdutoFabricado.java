@@ -1,6 +1,6 @@
-package Simulado.Questao_03;
+package Simulado.Questao03;
 
 public interface  IfProdutoFabricado extends IfProduto{
     public int getIngredientes();
-    IfProduto getIngrediente(int num);
+    public IfProduto getIngrediente(int num);
 }

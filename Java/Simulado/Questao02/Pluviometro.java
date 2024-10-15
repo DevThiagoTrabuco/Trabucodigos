@@ -1,4 +1,4 @@
-package Simulado.Questao_02;
+package Simulado.Questao02;
 
 public class Pluviometro {
     protected String tipo;
@@ -16,23 +16,23 @@ public class Pluviometro {
     }
 
     public double getPeso() {
-        if("Convencional".equals(tipo)){
-            peso = 1000;
-        } else if("Semiautomatico".equals(tipo)){
-            peso = 750;
-        } else if("Automatico".equals(tipo)){
-            peso = 500;
+        switch (tipo) {
+            case "Convencional" -> peso = 1000;
+            case "Semiautomatico" -> peso = 750;
+            case "Automatico" -> peso = 500;
+            default -> {
+            }
         }
         return peso;
     }
 
     public int getCapacidade() {
-        if("Convencional".equals(tipo)){
-            capacidade = 1000000;
-        } else if("Semiautomatico".equals(tipo)){
-            capacidade = 750000;
-        } else if("Automatico".equals(tipo)){
-            capacidade = 500000;
+        switch (tipo) {
+            case "Convencional" -> capacidade = 1000000;
+            case "Semiautomatico" -> capacidade = 750000;
+            case "Automatico" -> capacidade = 500000;
+            default -> {
+            }
         }
         return capacidade;
     }

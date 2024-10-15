@@ -27,7 +27,6 @@ public class Teste {
 
         //Declaração de arrays e matrizes
         int [] age = new int [5];
-        double [] grades = {5.0, 5.5, 6.2};
 
         char [] word;
         word = new char [5];

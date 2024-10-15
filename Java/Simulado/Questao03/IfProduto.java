@@ -1,4 +1,4 @@
-package Simulado.Questao_03;
+package Simulado.Questao03;
 
 public interface IfProduto {
     public String getNome();

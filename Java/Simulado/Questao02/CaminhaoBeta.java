@@ -1,8 +1,8 @@
-package Simulado.Questao_02;
+package Simulado.Questao02;
 
 public class CaminhaoBeta extends Caminhao{
     @Override
-    public void inserePluviometro(Pluviometro p){
+    public boolean inserePluviometro(Pluviometro p){
         boolean exists = false;
         for(Pluviometro pl : pluviometro){
             if(pl.getTipo().equals(p.getTipo())){
@@ -12,6 +12,8 @@ public class CaminhaoBeta extends Caminhao{
         }
         if(!exists){
             pluviometro.add(p);
+            return true;
         }
+        return false;
     }
 }
