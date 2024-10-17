@@ -12,16 +12,17 @@ public class Atividade13 {
         boolean quit = false;
 
         while(!quit){
-            System.out.println("Bem vindo ao BDSM - Banco Dr. São Marinho"
-            + "\nEscolha uma opção:"
-            + "\n[1] - Cria Conta"
-            + "\n[2] - Acessar Conta"
-            + "\n[3] - Listar Contas"
-            + "\n[Outro número] - Sair");
+            System.out.println("""
+                               Bem vindo ao BDSM - Banco Dr. São Marinho
+                               Escolha uma opção:
+                               [1] - Cria Conta
+                               [2] - Acessar Conta
+                               [3] - Listar Contas
+                               [Outro número] - Sair""");
             int op = new Scanner(System.in).nextInt();
 
             switch (op) {
-                case 1:
+                case 1 -> {
                     System.out.println("Digite o seu nome:");
                     String name = new Scanner(System.in).nextLine();
                     int nConta = new Random().nextInt(100000, 1000000);
@@ -30,8 +31,9 @@ public class Atividade13 {
                     ContaCorrente account = new ContaCorrente(name, accNumber);
                     Conta.add(account);
                     System.out.println("O número da sua Conta é: " + account.getaccount());
-                    break;
-                case 2:
+                }
+                case 2 -> {
+                    String name;
                     if(Conta.isEmpty()){
                         System.out.println("Sem Contas cadastradas.");
                     } else {
@@ -42,41 +44,43 @@ public class Atividade13 {
 
                         for(ContaCorrente conta : Conta){
                             if(conta.getaccOwner().equals(name)
-                            && conta.getaccount().equals(acc)){
+                                    && conta.getaccount().equals(acc)){
                                 found = true;
                                 boolean quit2 = false;
                                 int index = Conta.indexOf(conta);
 
                                 while(!quit2){
                                     System.out.println("Titular: " + Conta.get(index).getaccOwner()
-                                    + "\nConta: " + Conta.get(index).getaccount()
-                                    + "\nSaldo: " + Conta.get(index).getbalance()
-                                    + "\nDigite uma opção:"
-                                    + "\n[1] - Depositar"
-                                    + "\n[2] - Sacar"
-                                    + "\n[Outro número] - Sair da Conta");
+                                            + "\nConta: " + Conta.get(index).getaccount()
+                                            + "\nSaldo: " + Conta.get(index).getbalance()
+                                            + "\nDigite uma opção:"
+                                                    + "\n[1] - Depositar"
+                                                    + "\n[2] - Sacar"
+                                                    + "\n[Outro número] - Sair da Conta");
                                     int choice = new Scanner(System.in).nextInt();
 
-                                    if(choice == 1){
-                                        System.out.println("Digite o valor do depósito:");
-                                        double deposito = new Scanner(System.in).nextDouble();
-                                        if(deposito <= 0){
-                                            System.out.println("Inpossível realizar depósito.");
-                                        } else {
-                                            Conta.get(index).deposit(deposito);
+                                    switch (choice) {
+                                        case 1 -> {
+                                            System.out.println("Digite o valor do depósito:");
+                                            double deposito = new Scanner(System.in).nextDouble();
+                                            if(deposito <= 0){
+                                                System.out.println("Inpossível realizar depósito.");
+                                            } else {
+                                                Conta.get(index).deposit(deposito);
+                                            }
                                         }
-                                    } else if(choice == 2){
-                                        System.out.println("Digite o valor do saque:");
-                                        double saque = new Scanner(System.in).nextDouble();
-                                        if(saque > Conta.get(index).getbalance()){
-                                            System.out.println("Saldo insuficiente.");
-                                        } else if(saque <= 0){
-                                            System.out.println("Impossível realizar saque.");
-                                        } else {
-                                            Conta.get(index).withdraw(saque);
+                                        case 2 -> {
+                                            System.out.println("Digite o valor do saque:");
+                                            double saque = new Scanner(System.in).nextDouble();
+                                            if(saque > Conta.get(index).getbalance()){
+                                                System.out.println("Saldo insuficiente.");
+                                            } else if(saque <= 0){
+                                                System.out.println("Impossível realizar saque.");
+                                            } else {
+                                                Conta.get(index).withdraw(saque);
+                                            }
                                         }
-                                    } else {
-                                        quit2 = true;
+                                        default -> quit2 = true;
                                     }
                                 }
                                 break;
@@ -86,8 +90,8 @@ public class Atividade13 {
                             System.out.println("Conta não encontrada.");
                         }
                     }
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     if(Conta.isEmpty()){
                         System.out.println("Sem Contas cadastradas");
                     } else {
@@ -98,10 +102,8 @@ public class Atividade13 {
                             i++;
                         }
                     }
-                    break;
-                default:
-                    quit = true;
-                    break;
+                }
+                default -> quit = true;
             }
         }
     }

@@ -1,4 +1,4 @@
-package RoteiroPratica;
+package RoteiroPratica.RP01;
 
 import java.util.ArrayList;
 import java.util.Scanner;

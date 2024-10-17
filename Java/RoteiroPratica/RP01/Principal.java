@@ -1,4 +1,4 @@
-package RoteiroPratica;
+package RoteiroPratica.RP01;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,25 +11,24 @@ public class Principal {
         boolean quit = false;
 
         while(!quit){
-            System.out.println("Bem vindo(a) ao sistema CHUPA - Cadastro Humano Universal Paulo Afonso" 
-            + "\nEscolha uma opção"
-            + "\n[1] - Cadastrar pessoa"
-            + "\n[2] - Buscar pessoa"
-            + "\n[0] - Sair");
+            System.out.println("""
+                               Bem vindo(a) ao sistema CHUPA - Cadastro Humano Universal Paulo Afonso
+                               Escolha uma opção
+                               [1] - Cadastrar pessoa
+                               [2] - Buscar pessoa
+                               [0] - Sair""");
             int op = new Scanner(System.in).nextInt();
 
             switch (op) {
-                case 1:
+                case 1 -> {
                     Cadastrar register = new Cadastrar();
                     register.register((ArrayList<Pessoa>) Galera);
-                break;
-                case 2:
+                }
+                case 2 -> {
                     Buscar search = new Buscar();
                     search.search((ArrayList<Pessoa>) Galera);
-                break;
-                default:
-                    quit = true;
-                break;
+                }
+                default -> quit = true;
             }
         }
     }

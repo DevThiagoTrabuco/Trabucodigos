@@ -1,7 +1,11 @@
-package RoteiroPratica;
+package RoteiroPratica.RP01;
 
 public class Pessoa {
-    private String name, cpf;
+    @SuppressWarnings("FieldMayBeFinal")
+    private String name;
+    @SuppressWarnings("FieldMayBeFinal")
+    private String cpf;
+    @SuppressWarnings("FieldMayBeFinal")
     private int birthYear;
 
     public Pessoa(String name, String cpf, int birthYear){
