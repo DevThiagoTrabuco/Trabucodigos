@@ -1,4 +1,4 @@
-package RoteiroPratica.RP01;
+package RP_01;
 
 public class Pessoa {
     @SuppressWarnings("FieldMayBeFinal")

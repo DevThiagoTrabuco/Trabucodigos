@@ -70,7 +70,7 @@ public class Principal {
 									op2 = new Scanner(System.in).nextInt();
 									
 									switch(op2) {
-										case 1:
+										case 1 -> {
 											System.out.println("Digite o novo nome.");
 											String nome = new Scanner(System.in).next();
 											
@@ -88,11 +88,11 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 2:
+										}
+										case 2 -> {
 											System.out.println("Digite a nova idade.");
 											int idade = new Scanner(System.in).nextInt();
-											
+											String nome;
 											for (Pessoa pessoa : pessoas) {
 												int index = pessoas.indexOf(pessoa);
 												
@@ -106,11 +106,12 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 3:
+										}
+										case 3 -> {
 											System.out.println("Digite o novo cpf.");
 											String cpf = new Scanner(System.in).next();
-											
+											int idade;
+											String nome;
 											for (Pessoa pessoa : pessoas) {
 												int index = pessoas.indexOf(pessoa);
 												
@@ -124,13 +125,12 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 4:
+										}
+										case 4 -> {
 											System.out.println("Digite o novo nome, idade e cpf.");
-											nome = new Scanner(System.in).next();
-											idade = new Scanner(System.in).nextInt();
-											cpf = new Scanner(System.in).next();
-											
+											String nome = new Scanner(System.in).next();
+											int idade = new Scanner(System.in).nextInt();
+											String cpf = new Scanner(System.in).next();
 											for (Pessoa pessoa : pessoas) {
 												int index = pessoas.indexOf(pessoa);
 												
@@ -142,11 +142,11 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 0:
-											break;
-										default:
-											break;
+										}
+										case 0 -> {
+                                        }
+										default -> {
+                                        }
 									}
 								}
 							}
@@ -199,7 +199,7 @@ public class Principal {
 								
 								if(pj.buscar(pessoas, id).equals("\nNão encontrado")){
 									System.out.println("\nNão encontrado");
-								}else {
+								} else {
 									System.out.println(pj.buscar(pessoas, id)
 											+"O que deseja alterar?"
 											+ "\n1-Nome."
@@ -210,7 +210,7 @@ public class Principal {
 									op2 = new Scanner(System.in).nextInt();
 									
 									switch(op2) {
-										case 1:
+										case 1 -> {
 											System.out.println("Digite o novo nome.");
 											String nome = new Scanner(System.in).next();
 											
@@ -228,11 +228,11 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 2:
+										}
+										case 2 -> {
 											System.out.println("Digite a nova idade.");
 											int idade = new Scanner(System.in).nextInt();
-											
+											String nome;
 											for (Pessoa pessoa : pessoas) {
 												int index = pessoas.indexOf(pessoa);
 												
@@ -246,11 +246,12 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 3:
+										}
+										case 3 -> {
 											System.out.println("Digite o novo cnpj.");
 											String cnpj = new Scanner(System.in).next();
-											
+											int idade;
+											String nome;
 											for (Pessoa pessoa : pessoas) {
 												int index = pessoas.indexOf(pessoa);
 												
@@ -264,13 +265,12 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 4:
+										}
+										case 4 -> {
 											System.out.println("Digite o novo nome, idade e cnpj.");
-											nome = new Scanner(System.in).next();
-											idade = new Scanner(System.in).nextInt();
-											cnpj = new Scanner(System.in).next();
-											
+											String nome = new Scanner(System.in).next();
+											int idade = new Scanner(System.in).nextInt();
+											String cnpj = new Scanner(System.in).next();
 											for (Pessoa pessoa : pessoas) {
 												int index = pessoas.indexOf(pessoa);
 												
@@ -282,11 +282,11 @@ public class Principal {
 													break;
 												}
 											}
-											break;
-										case 0:
-											break;
-										default:
-											break;
+										}
+										case 0 -> {
+										}
+										default -> {
+										}
 									}
 								}
 							}
