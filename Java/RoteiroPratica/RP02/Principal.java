@@ -10,6 +10,8 @@ public class Principal {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		List <Pessoa> pessoas = new ArrayList<>();
+		PessoaFisica pf = null;
+		PessoaJuridica pj = null;
 		boolean quit = false;
 		
 		while(!quit){
@@ -42,7 +44,7 @@ public class Principal {
 								String cpf = new Scanner(System.in).nextLine();
 								int id = new Random().nextInt(100, 999);
 								
-								PessoaFisica pf = new PessoaFisica(id, idade, nome, cpf);
+								pf = new PessoaFisica(id, idade, nome, cpf);
 								pf.cadastrarPessoa(id, nome, idade, cpf, pessoas);
 
 								System.out.println("Cadastro concluído" 
@@ -58,6 +60,9 @@ public class Principal {
 							case 3 -> {
 								System.out.println("Digite o id a ser buscado");
 								int id = new Scanner(System.in).nextInt();
+								
+								String resultado = pf.buscar(pessoas, id);
+								System.out.println(resultado);
 							}
 							default -> quit2 = true;
 						}
@@ -83,7 +88,7 @@ public class Principal {
 								String cnpj = new Scanner(System.in).nextLine();
 								int id = new Random().nextInt(100, 999);
 								
-								PessoaJuridica pj = new PessoaJuridica(id, idade, nome, cnpj);
+								pj = new PessoaJuridica(id, idade, nome, cnpj);
 								pj.cadastrarPessoa(id, nome, idade, cnpj, pessoas);
 
 								System.out.println("Cadastro concluído" 
@@ -99,6 +104,9 @@ public class Principal {
 							case 3 -> {
 								System.out.println("Digite o id a ser buscado");
 								int id = new Scanner(System.in).nextInt();
+								
+								String resultado = pj.buscar(pessoas, id);
+								System.out.println(resultado);
 							}
 							default -> quit2 = true;
 						}

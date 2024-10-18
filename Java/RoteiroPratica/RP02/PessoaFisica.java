@@ -28,10 +28,9 @@ public class PessoaFisica extends Pessoa
     @Override
 	public void editar(List<Pessoa> pessoas, int id) {
 		for (Pessoa pessoa : pessoas) {
+			int index = pessoas.indexOf(pessoa);
 			
-			if(pessoa instanceof PessoaFisica && pessoa.getId() == id) {
-				int index = pessoas.indexOf(pessoa);
-				
+			if(pessoas.get(index) instanceof PessoaFisica && pessoa.getId() == id) {
 				PessoaFisica pessoaFisica = (PessoaFisica) pessoas.get(index);
 				
 				pessoaFisica.setNome(nome);
@@ -45,15 +44,16 @@ public class PessoaFisica extends Pessoa
 	@Override
 	public String buscar(List<Pessoa> pessoas, int id) {
 		for (Pessoa pessoa : pessoas) {
-			if(pessoas.get(id) instanceof PessoaFisica && pessoa.getId() == id) {
-				int index = pessoas.indexOf(pessoa);
-				
+			int index = pessoas.indexOf(pessoa);
+			
+			if(pessoas.get(index) instanceof PessoaFisica && pessoa.getId() == id) {
 				PessoaFisica pessoaFisica = (PessoaFisica) pessoas.get(index);
 		
-				return "\nId: "+ pessoaFisica.getId()
-				+"\nNome: "+ pessoaFisica.getNome()
-				+ "\nIdade: "+pessoaFisica.getIdade()
-				+"Cpf: "+pessoaFisica.getCpf();
+				return "\nId: " + pessoaFisica.getId()
+				+ "\nNome: " + pessoaFisica.getNome()
+				+ "\nIdade: " + pessoaFisica.getIdade()
+				+ "\nCpf: " + pessoaFisica.getCpf()
+				+ "\n";
 			}
 		}
 		return "\nNão encontrado";
