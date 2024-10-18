@@ -1,4 +1,4 @@
-package RoteiroPratica.RP02;
+package RP_02;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class PessoaFisica extends Pessoa
     }
 
     @Override
-	public void editar(List<Pessoa> pessoas, int id) {
+	public void editar(List<Pessoa> pessoas, int id, String nome, String cpf, int idade) {
 		for (Pessoa pessoa : pessoas) {
 			int index = pessoas.indexOf(pessoa);
 			
@@ -49,11 +49,11 @@ public class PessoaFisica extends Pessoa
 			if(pessoas.get(index) instanceof PessoaFisica && pessoa.getId() == id) {
 				PessoaFisica pessoaFisica = (PessoaFisica) pessoas.get(index);
 		
-				return "\nId: " + pessoaFisica.getId()
-				+ "\nNome: " + pessoaFisica.getNome()
-				+ "\nIdade: " + pessoaFisica.getIdade()
-				+ "\nCpf: " + pessoaFisica.getCpf()
-				+ "\n";
+				return "\nId: "+ pessoaFisica.getId()
+				+"\nNome: "+ pessoaFisica.getNome()
+				+ "\nIdade: "+pessoaFisica.getIdade()
+				+"\nCpf: "+pessoaFisica.getCpf()
+				+"\n";
 			}
 		}
 		return "\nNão encontrado";

@@ -1,4 +1,4 @@
-package RoteiroPratica.RP02;
+package RP_02;
 
 import java.util.List;
 
