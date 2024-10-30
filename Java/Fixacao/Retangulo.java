@@ -1,8 +1,14 @@
 package Fixacao;
 
 public class Retangulo implements ObjGeometrico{
-    private int base;
-    private int altura;
+    private double base;
+    private double altura;
+
+    public Retangulo(double base, double altura){
+        this.base = base;
+        this.altura = altura;
+    }
+
     @Override
     public double area() {
         double area = base*altura;

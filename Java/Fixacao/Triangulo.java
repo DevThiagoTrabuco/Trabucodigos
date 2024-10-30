@@ -5,6 +5,12 @@ public class Triangulo implements ObjGeometrico{
     @SuppressWarnings("FieldMayBeFinal")
     private double s = (sideA + sideB + sideC)/2;
 
+    public Triangulo (double sideA, double sideB, double sideC){
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
+    }
+
     @Override
     public double area() {
         double area = Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));

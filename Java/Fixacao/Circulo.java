@@ -1,7 +1,11 @@
 package Fixacao;
 
 public class Circulo implements ObjGeometrico{
-    private int raio;
+    private double raio;
+
+    public Circulo(double raio){
+        this.raio = raio;
+    }
 
     @Override
     public double area() {
