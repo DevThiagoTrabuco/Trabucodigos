@@ -25,8 +25,8 @@ public class FuncionarioDAO {
 
             pstm.execute();
             pstm.close();
-
-            JOptionPane.showMessageDialog(null, funcionario.getName() + " cadastrado com sucesso.");
+            
+            JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso.");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
