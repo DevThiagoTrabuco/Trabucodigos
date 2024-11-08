@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class FuncionarioDAO {
@@ -57,14 +58,28 @@ public class FuncionarioDAO {
     }
 
     public void update(FuncionarioDTO funcionario){
-        String sql = "UPDATE funcionarios SET nome = ?, email = ? WHERE id_func = ?";
+        StringBuilder sql = new StringBuilder ("UPDATE funcionarios SET ");
+        List<Object> parametros = new ArrayList<>();
+
+        if(funcionario.getName() != null && !funcionario.getName().isEmpty()){
+            sql.append("nome = ?, ");
+            parametros.add(funcionario.getName());
+        }
+        if(funcionario.getEmail() != null && !funcionario.getEmail().isEmpty()){
+            sql.append("email = ?, ");
+            parametros.add(funcionario.getEmail());
+        }
+        sql.setLength(sql.length() - 2);
+        sql.append(" WHERE id_func = ?");
+        parametros.add(funcionario.getId());
+
         conn = new ConnectionDAO().connectDB();
 
         try {
-            pstm = conn.prepareStatement(sql);
-            pstm.setString(1, funcionario.getName());
-            pstm.setString(2, funcionario.getEmail());
-            pstm.setInt(3, funcionario.getId());
+            pstm = conn.prepareStatement(sql.toString());
+            for(int i = 0; i < parametros.size(); i++){
+                pstm.setObject(i + 1, parametros.get(i));
+            }
 
             pstm.executeUpdate();
             pstm.close();
