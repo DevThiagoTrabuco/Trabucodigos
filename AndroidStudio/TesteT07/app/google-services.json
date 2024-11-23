@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "522191167586",
+    "project_id": "projeto-8470b",
+    "storage_bucket": "projeto-8470b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522191167586:android:c85c1318bee3b9c5bef13b",
+        "android_client_info": {
+          "package_name": "com.example.atividade"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgrdk0-_zuw8Y_hgK00aVD82GW7P8Cwi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
