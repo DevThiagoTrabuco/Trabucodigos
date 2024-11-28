@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.zoio);
+                        MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.talvez);
                         mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                             @Override
                             public void onCompletion(MediaPlayer mediaPlayer) {
