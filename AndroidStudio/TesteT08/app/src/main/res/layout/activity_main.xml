@@ -92,6 +92,7 @@
         />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,9 +107,11 @@
         android:textSize="18sp"
         android:textAllCaps="false"
         android:text="Cadastrar"
+        android:onClick="cadastro"
         />
 
     <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
