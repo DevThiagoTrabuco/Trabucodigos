@@ -89,6 +89,7 @@
         android:textStyle="bold"
         android:textAllCaps="false"
         android:text="Entrar"
+        android:onClick="login"
         />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -107,7 +108,7 @@
         android:textSize="18sp"
         android:textAllCaps="false"
         android:text="Cadastrar"
-        android:onClick="cadastro"
+        android:onClick="chamarCadastro"
         />
 
     <ProgressBar

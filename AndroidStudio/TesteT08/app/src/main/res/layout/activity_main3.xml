@@ -100,6 +100,7 @@
             android:textStyle="bold"
             android:textAllCaps="false"
             android:text="Deslogar"
+            android:onClick="logoff"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
