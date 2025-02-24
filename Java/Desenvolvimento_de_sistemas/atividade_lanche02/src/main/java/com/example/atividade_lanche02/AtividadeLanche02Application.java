@@ -72,25 +72,40 @@ public class AtividadeLanche02Application {
                     }
                 }
                 case 3 -> {
-                    System.out.println("Código do lanche:");
-                    int cod = Integer.parseInt(System.console().readLine());
-                    lancheFacade.remover(cod);
-                    System.out.println("Lanche removido com sucesso\n");
+                    if(lancheFacade.buscar().isEmpty()){
+                        System.out.println("Nenhum lanche cadastrado\n");
+                        break;
+                    } else {
+                        System.out.println("Código do lanche:");
+                        int cod = Integer.parseInt(System.console().readLine());
+                        lancheFacade.remover(cod);
+                        System.out.println("Lanche removido com sucesso\n");
+                    }
                 }
                 case 4 -> {
                     System.out.println("--------------------------------------\n CÓDIGO\tNOME\t\tPRECO\n--------------------------------------");
-                    List<Lanche> lanches = lancheFacade.buscar();
-                    for(Lanche l : lanches){
-                        System.out.println(l.getCodigo() + "\t\t" + l.getNome() + "\t\t" + l.getPreco() + "\n\n");
+                    if(lancheFacade.buscar().isEmpty()){
+                        System.out.println("Nenhum lanche cadastrado\n");
+                        break;
+                    } else {
+                        List<Lanche> lanches = lancheFacade.buscar();
+                        for(Lanche l : lanches){
+                            System.out.println(l.getCodigo() + "\t\t" + l.getNome() + "\t\t" + l.getPreco() + "\n\n");
+                        }
                     }
                 }
                 case 5 -> {
-                    System.out.println("Código do lanche:");
-                    int cod = Integer.parseInt(System.console().readLine());
-                    System.out.println("Quantidade:");
-                    int quantidade = Integer.parseInt(System.console().readLine());
-                    Lanche lanche = lancheFacade.buscarPorCodigo(cod);
-                    System.out.println("Total: " + lancheFacade.calcularLanche(lanche, quantidade) + "\n");
+                    if(lancheFacade.buscar().isEmpty()){
+                        System.out.println("Nenhum lanche cadastrado\n");
+                        break;
+                    } else {
+                        System.out.println("Código do lanche:");
+                        int cod = Integer.parseInt(System.console().readLine());
+                        System.out.println("Quantidade:");
+                        int quantidade = Integer.parseInt(System.console().readLine());
+                        Lanche lanche = lancheFacade.buscarPorCodigo(cod);
+                        System.out.println("Total: " + lancheFacade.calcularLanche(lanche, quantidade) + "\n");
+                    }
                 }
                 case 6 -> quit = true;
             }

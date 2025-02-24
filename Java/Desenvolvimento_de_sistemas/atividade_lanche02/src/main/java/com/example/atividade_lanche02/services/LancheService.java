@@ -9,7 +9,7 @@ import java.nio.file.StandardCopyOption;
 import com.example.atividade_lanche02.entities.Lanche;
 
 public class LancheService {
-    private String filePath = "C:/Users/thiag/Documents/Github/Trabucodigos/Java/Desenvolvimento_de_sistemas/atividade_lanche02/src/main/java/com/example/atividade_lanche02/repositories/destination"; //algo não está certo aqui ...
+    private String filePath = "C:/Users/thiag/Documents/Github/Trabucodigos/Java/Desenvolvimento_de_sistemas/atividade_lanche02/src/main/java/com/example/atividade_lanche02/repositories/destination/"; //algo não está certo aqui ...
 
     public Lanche getById(int id) {
         return null;
