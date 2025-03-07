@@ -2,7 +2,9 @@ package com.thiago.atividade_lanche03.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -56,5 +58,23 @@ public class LancheController {
     @PostMapping("")
     public void add(@RequestBody Lanche lanche){
         lancheFacade.add(lanche);
+    }
+
+    @PatchMapping("/{id}")
+    public void update(@RequestBody Lanche lanche){
+        lancheFacade.update(lanche.getCode(), lanche);
+    }
+
+    @DeleteMapping("/{id}")
+    public void remove(@RequestBody int id){
+        lancheFacade.remove(id);
+    }
+
+    @PostMapping("/buy")
+    public void comprar(@RequestBody int id, @RequestBody int qtt) {
+        Lanche lanche = lancheFacade.getBycode(id);
+        if (lanche != null) {
+            lancheFacade.chargePrice(lanche, qtt);
+        }
     }
 }
