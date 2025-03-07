@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.thiago.atividade_lanche03.application.LancheApplication;
 import com.thiago.atividade_lanche03.entities.Lanche;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class LancheFacade {
     @Autowired
     private LancheApplication lancheApplication;

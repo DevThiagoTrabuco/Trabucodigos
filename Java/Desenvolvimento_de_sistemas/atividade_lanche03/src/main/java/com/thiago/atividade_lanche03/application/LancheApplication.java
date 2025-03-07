@@ -8,6 +8,9 @@ import com.thiago.atividade_lanche03.entities.Lanche;
 import com.thiago.atividade_lanche03.repositories.LancheRepository;
 import com.thiago.atividade_lanche03.services.LancheService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class LancheApplication {
     @Autowired
     private LancheRepository lancheRepository;

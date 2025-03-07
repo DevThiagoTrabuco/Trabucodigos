@@ -3,11 +3,13 @@ package com.thiago.atividade_lanche03.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.thiago.atividade_lanche03.entities.Lanche;
 
 @Repository
+@Component
 public class LancheRepository {
     private List<Lanche> lanches = new ArrayList<>();
 
