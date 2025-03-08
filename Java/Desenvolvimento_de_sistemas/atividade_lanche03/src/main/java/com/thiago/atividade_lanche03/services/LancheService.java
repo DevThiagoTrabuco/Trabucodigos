@@ -6,13 +6,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.thiago.atividade_lanche03.entities.Lanche;
 
 @Service
-@Component
 public class LancheService {
     private String filePath = "../atividade_lanche03/repositories/destination/";
 

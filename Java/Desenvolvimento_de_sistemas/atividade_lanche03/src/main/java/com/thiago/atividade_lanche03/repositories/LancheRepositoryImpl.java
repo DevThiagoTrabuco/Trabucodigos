@@ -3,14 +3,13 @@ package com.thiago.atividade_lanche03.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.thiago.atividade_lanche03.entities.Lanche;
+import com.thiago.atividade_lanche03.interfaces.LancheRepository;
 
 @Repository
-@Component
-public class LancheRepository {
+public class LancheRepositoryImpl implements LancheRepository{
     private List<Lanche> lanches = new ArrayList<>();
 
     public Lanche getByCode(int code){
@@ -35,14 +34,10 @@ public class LancheRepository {
         lanches.removeIf(l -> l.getCode() == code);
     }
 
-    public void updateLanche(int code, Lanche lanche){
+    public void update(int code, Lanche lanche){
         Lanche l = this.getByCode(code);
         l.setName(lanche.getName());
         l.setImagePath(lanche.getImagePath());
         l.setPrice(lanche.getPrice());
-    }
-
-    public boolean estaVazio(){
-        return lanches.isEmpty();
     }
 }

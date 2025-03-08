@@ -3,19 +3,22 @@ package com.thiago.atividade_lanche03.application;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.thiago.atividade_lanche03.entities.Lanche;
-import com.thiago.atividade_lanche03.repositories.LancheRepository;
+import com.thiago.atividade_lanche03.repositories.LancheRepositoryImpl;
 import com.thiago.atividade_lanche03.services.LancheService;
 
 import lombok.AllArgsConstructor;
 
+@Component
 @AllArgsConstructor
 public class LancheApplication {
     @Autowired
-    private LancheRepository lancheRepository;
+    private LancheRepositoryImpl lancheRepository;
     @Autowired
     private LancheService lancheService;
+    
 
     public void add(Lanche lanche){
         this.lancheRepository.add(lanche);
@@ -23,7 +26,7 @@ public class LancheApplication {
     }
 
     public void update(int code, Lanche lanche){
-        this.lancheRepository.updateLanche(code, lanche);
+        this.lancheRepository.update(code, lanche);
         this.lancheService.save(lanche);
     }
 
@@ -44,7 +47,4 @@ public class LancheApplication {
         return lanche.getPrice() * qtt;
     }
 
-    public boolean estaVazio(){
-        return this.lancheRepository.estaVazio();
-    }
 }

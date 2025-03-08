@@ -3,12 +3,14 @@ package com.thiago.atividade_lanche03.facade;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.thiago.atividade_lanche03.application.LancheApplication;
 import com.thiago.atividade_lanche03.entities.Lanche;
 
 import lombok.AllArgsConstructor;
 
+@Component
 @AllArgsConstructor
 public class LancheFacade {
     @Autowired
@@ -38,7 +40,4 @@ public class LancheFacade {
         return this.lancheApplication.chargePrice(lanche, qtt);
     }
 
-    public boolean estaVazio(){
-        return this.lancheApplication.estaVazio();
-    }
 }
