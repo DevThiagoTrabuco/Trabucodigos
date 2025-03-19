@@ -37,7 +37,7 @@ public class LancheRepositoryImpl implements LancheRepository{
     public void update(int code, Lanche lanche){
         Lanche l = this.getByCode(code);
         l.setName(lanche.getName());
-        l.setImagePath(lanche.getImagePath());
+        l.setImage(lanche.getImage());
         l.setPrice(lanche.getPrice());
     }
 }
