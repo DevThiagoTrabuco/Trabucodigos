@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.thiago.atividade_lanche03.entities.Lanche;
-import com.thiago.atividade_lanche03.repositories.LancheRepositoryImpl;
+import com.thiago.atividade_lanche03.interfaces.LancheRepository;
 import com.thiago.atividade_lanche03.services.LancheService;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class LancheApplication {
     @Autowired
-    private LancheRepositoryImpl lancheRepository;
+    private LancheRepository lancheRepository;
     @Autowired
     private LancheService lancheService;
     
@@ -25,22 +25,25 @@ public class LancheApplication {
         this.lancheService.save(lanche);
     }
 
-    public void update(int code, Lanche lanche){
-        this.lancheRepository.update(code, lanche);
+    public void update(int id, Lanche lanche){
+        this.lancheRepository.update(id, lanche);
         this.lancheService.save(lanche);
     }
 
-    public void remove(int code){
-        this.lancheRepository.remove(code);
-        this.lancheService.delete(this.lancheRepository.getByCode(code));
+    public void remove(int id){
+        Lanche lanche = this.lancheRepository.getById(id);
+        if(lanche != null){
+            this.lancheRepository.remove(id);
+            this.lancheService.delete(lanche);
+        }
     }
 
     public List<Lanche> list(){
         return this.lancheRepository.list();
     }
 
-    public Lanche getByCode(int code){
-        return this.lancheRepository.getByCode(code);
+    public Lanche getById(int id){
+        return this.lancheRepository.getById(id);
     }
 
     public double chargePrice(Lanche lanche, int qtt){

@@ -5,7 +5,7 @@ import java.util.List;
 import com.thiago.atividade_lanche03.entities.Lanche;
 
 public interface LancheRepository {
-    public Lanche getByCode(int code);
+    public Lanche getById(int code);
     public List<Lanche> list();
     public void add(Lanche lanche);
     public void remove(int code);

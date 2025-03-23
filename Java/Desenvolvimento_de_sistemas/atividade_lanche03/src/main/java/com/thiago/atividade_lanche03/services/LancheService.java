@@ -34,7 +34,7 @@ public class LancheService {
 
     public boolean save(Lanche lanche){
         Path path = Paths.get(lanche.getImage());
-        Path destination = Paths.get(String.format("%s%d.%s", filePath, lanche.getCode(), getFileExtension(path)));
+        Path destination = Paths.get(String.format("%s%d.%s", filePath, lanche.getId(), getFileExtension(path)));
 
         if(Files.exists(path)){
             try{

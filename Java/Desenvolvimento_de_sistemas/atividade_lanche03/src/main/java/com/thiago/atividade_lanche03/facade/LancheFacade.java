@@ -20,20 +20,20 @@ public class LancheFacade {
         this.lancheApplication.add(lanche);
     }
 
-    public void update(int code, Lanche lanche){
-        this.lancheApplication.update(code, lanche);
+    public void update(int id, Lanche lanche){
+        this.lancheApplication.update(id, lanche);
     }
 
-    public void remove(int code){
-        this.lancheApplication.remove(code);
+    public void remove(int id){
+        this.lancheApplication.remove(id);
     }
 
     public List<Lanche> list(){
         return this.lancheApplication.list();
     }
 
-    public Lanche getBycode(int code){
-        return this.lancheApplication.getByCode(code);
+    public Lanche getById(int id){
+        return this.lancheApplication.getById(id);
     }
 
     public double chargePrice(Lanche lanche, int qtt){

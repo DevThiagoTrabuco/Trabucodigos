@@ -1,18 +1,18 @@
 package com.thiago.atividade_lanche03.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "lanche")
 public class Lanche {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
     @Column(name = "name")
@@ -24,15 +24,19 @@ public class Lanche {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "code")
-    private int code;
-
     @Override
     public String toString() {
-        return "Lanche [name=" + name 
-        + ", imagePath=" + image
-        + ", price=" + price 
-        + ", code=" + code 
-        + "]";
+        return "Lanche [id=" + id + 
+        ", name=" + name + 
+        ", image=" + image + 
+        ", price=" + price + 
+        "]";
     }
+
+    public Lanche(String name, String image, double price) {
+        this.name = name;
+        this.image = image;
+        this.price = price;
+    }
+
 }

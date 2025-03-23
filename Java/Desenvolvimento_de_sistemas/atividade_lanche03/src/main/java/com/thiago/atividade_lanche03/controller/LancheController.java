@@ -17,21 +17,13 @@ import com.thiago.atividade_lanche03.entities.Lanche;
 import com.thiago.atividade_lanche03.facade.LancheFacade;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/teste")
 public class LancheController {
 
-   
     private LancheFacade lancheFacade;
     @Autowired
     public LancheController(LancheFacade lancheFacade) {
         this.lancheFacade = lancheFacade;
-        Lanche lanche1 = new Lanche("raiz", "jorge", 1.57, 1);
-        Lanche lanche2 = new Lanche("raize", "jilson", 1.77, 2);
-        Lanche lanche3 = new Lanche("raizes", "marselo", 1.87, 3);
-
-        lancheFacade.add(lanche1);
-        lancheFacade.add(lanche2);
-        lancheFacade.add(lanche3);
     }
 
     @GetMapping("")
@@ -41,7 +33,7 @@ public class LancheController {
 
     @GetMapping("/{id}")
     public Lanche getLanche(@PathVariable int id){
-        return lancheFacade.getBycode(id);
+        return lancheFacade.getById(id);
     }
 
     @PostMapping("")
@@ -55,13 +47,13 @@ public class LancheController {
     }
 
     @DeleteMapping("/{id}")
-    public void remove(@RequestBody int id){
+    public void remove(@PathVariable int id){
         lancheFacade.remove(id);
     }
 
     @GetMapping("/buy")
     public double comprar(@RequestParam int id, @RequestParam int qtt) {
-        Lanche lanche = lancheFacade.getBycode(id);
+        Lanche lanche = lancheFacade.getById(id);
         if (lanche != null) {
             return lancheFacade.chargePrice(lanche, qtt);
         }
