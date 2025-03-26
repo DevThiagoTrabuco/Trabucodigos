@@ -24,10 +24,12 @@ public class Professor {
     @Column(name = "idade_professor")
     private int idade;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType. MERGE})
     @JoinColumn(name = "id_detalhe_professor", referencedColumnName = "id_detalhe_professor")
     private DetalheProfessor detalheProfessor;
 
-    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "professor", cascade = {CascadeType.PERSIST, CascadeType. MERGE})
     private List<Curso> cursos = new ArrayList<>();
 }

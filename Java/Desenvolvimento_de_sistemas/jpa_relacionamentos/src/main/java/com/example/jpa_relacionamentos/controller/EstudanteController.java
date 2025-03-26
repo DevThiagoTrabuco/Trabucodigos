@@ -26,27 +26,27 @@ public class EstudanteController {
     }
 
     @GetMapping("")
-    public List<Estudante> buscar(){
+    public List<Estudante> getAll(){
         return estudanteRepository.findAll();
     }
 
     @GetMapping("/{codigo}")
-    public Estudante buscarPorCodigo(@PathVariable int codigo){
+    public Estudante getById(@PathVariable int codigo){
         return estudanteRepository.findById(codigo).get();
     }
 
     @PostMapping("")
-    public void adicionar(@RequestBody Estudante estudante){
+    public void save(@RequestBody Estudante estudante){
         estudanteRepository.save(estudante);
     }
 
     @PutMapping("/{codigo}")
-    public void atualizar(@PathVariable int codigo, @RequestBody Estudante estudante){
+    public void update(@PathVariable int codigo, @RequestBody Estudante estudante){
         estudanteRepository.save(estudante);
     }
 
     @DeleteMapping("/{codigo}")
-    public void remover(@PathVariable int codigo){
+    public void delete(@PathVariable int codigo){
         estudanteRepository.deleteById(codigo);
     }
 }

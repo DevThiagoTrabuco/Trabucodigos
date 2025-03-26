@@ -20,10 +20,10 @@ public class Curso {
     @Column(name = "nome_curso")
     private String nome;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType. MERGE})
     @JoinColumn(name = "id_professor", referencedColumnName = "id_professor")
     private Professor professor;
 
-    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "curso", cascade = {CascadeType.PERSIST, CascadeType. MERGE})
     private List<CursoEstudante> cursoEstudantes;
 }

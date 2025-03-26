@@ -26,27 +26,27 @@ public class ProfessorController {
     }
 
     @GetMapping("")
-    public List<Professor> buscar(){
+    public List<Professor> getAll(){
         return professorRepository.findAll();
     }
 
     @GetMapping("/{codigo}")
-    public Professor buscarPorCodigo(@PathVariable int codigo){
+    public Professor getById(@PathVariable int codigo){
         return professorRepository.findById(codigo).get();
     }
 
     @PostMapping("")
-    public void adicionar(@RequestBody Professor professor){
+    public void save(@RequestBody Professor professor){
         professorRepository.save(professor);
     }
 
     @PutMapping("/{codigo}")
-    public void atualizar(@PathVariable int codigo, @RequestBody Professor professor){
+    public void update(@PathVariable int codigo, @RequestBody Professor professor){
         professorRepository.save(professor);
     }
 
     @DeleteMapping("/{codigo}")
-    public void remover(@PathVariable int codigo){
+    public void delete(@PathVariable int codigo){
         professorRepository.deleteById(codigo);
     }
 }

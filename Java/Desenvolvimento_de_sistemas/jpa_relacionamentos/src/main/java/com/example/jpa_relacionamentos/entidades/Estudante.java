@@ -26,6 +26,6 @@ public class Estudante {
     @Column(name = "email_estudante")
     private String email;
 
-    @OneToMany(mappedBy = "estudante", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "estudante", cascade = {CascadeType.PERSIST, CascadeType. MERGE})
     private List<CursoEstudante> cursoEstudantes;
 }
