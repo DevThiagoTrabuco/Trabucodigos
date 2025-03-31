@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Monitoramento da Granja</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 30px;
+      text-align: center;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin: 20px auto;
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .status-led {
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 10px;
+        color: #000;
+    }
+    .vermelho { background-color: #e74c3c; }
+    .amarelo { background-color: #f1c40f; color: #000; }
+    .verde { background-color: #2ecc71; }
+  </style>
+</head>
+<body>
+  <h1>Monitoramento da Granja</h1>
+
+  <div class="card">
+    <p><strong>Temperatura:</strong> <span id="temp">--</span> °C</p>
+    <p><strong>Umidade:</strong> <span id="umid">--</span> %</p>
+    <p><strong>Status do LED:</strong> <span id="statusLed" class="status-led">--</span></p>
+  </div>
+
+  <script>
+    // Configuração do Firebase (substitua com os seus dados!)
+    const firebaseConfig = {
+      apiKey: "AIzaSyBrnqehQ_h9MbIcYlDHK4BHbyvgztQZRqs",
+      authDomain: "iot-senai-esp32.firebaseapp.com",
+      databaseURL: "https://iot-senai-esp32-default-rtdb.firebaseio.com",
+      projectId: "iot-senai-esp32",
+      storageBucket: "iot-senai-esp32.firebasestorage.app",
+      messagingSenderId: "654364028381",
+      appId: "1:654364028381:web:9c9307162ba9852422da34"
+    };
+
+    // Inicializa o Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Referência para os dados no Realtime Database
+    const tempRef = database.ref("/Var/temperatura");
+    const umidRef = database.ref("/Var/humidade");
+    const statusRef = database.ref("/Var/statusLED");
+
+    // Atualiza os dados na tela em tempo real
+    tempRef.on("value", snapshot => {
+      document.getElementById("temp").textContent = snapshot.val().toFixed(1);
+    });
+
+    umidRef.on("value", snapshot => {
+      document.getElementById("umid").textContent = snapshot.val().toFixed(1);
+    });
+
+    statusRef.on("value", snapshot => {
+      const status = snapshot.val();
+      const statusSpan = document.getElementById("statusLed");
+      statusSpan.textContent = status;
+      statusSpan.className = "status-led " + status;
+    });
+  </script>
+</body>
+</html>
